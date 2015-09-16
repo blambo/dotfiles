@@ -134,7 +134,7 @@ set notimeout ttimeout ttimeoutlen=200
 " Enable syntax highlighting
 syntax enable
 
-colorscheme vividchalk
+colorscheme badwolf
 set background=dark
 "hi CursorLine   cterm=underline ctermbg=darkred guibg=chocolate
 "hi CursorColumn cterm=underline ctermbg=darkred guibg=darkred
