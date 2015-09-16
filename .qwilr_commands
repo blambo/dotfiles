@@ -1,0 +1,7 @@
+alias cqs='ssh -i ~/.ssh/qwilrAdmin admin@qwilr.com'
+
+# Update if development path changes
+export qfolder=~/dev/qwilr
+
+source $qfolder/BashScripts.sh
+
