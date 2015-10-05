@@ -227,7 +227,8 @@ map Y y$
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
-nnoremap <C-L> :nohl<CR><C-L>
+" Can't get this working with the window movement binding
+"nnoremap <C-S-L> :nohl<CR><C-L>
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>
@@ -270,6 +271,13 @@ set nostartofline
 
 " Enable use of the mouse for all modes
 set mouse=a
+
+" Should give better mouse click detection
+if has("mouse_sgr")
+	set ttymouse=sgr
+else
+	set ttymouse=xterm
+end
 
 """"""""""""""""""""""""""""""
 " => Status line
