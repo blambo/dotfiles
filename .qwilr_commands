@@ -1,4 +1,8 @@
-alias cqs='ssh -i ~/.ssh/qwilrAdmin admin@qwilr.com'
+# Source commands that we don't want stored in git repo
+if [ -s ./.private-qwilr-commands ]
+then
+	source ./.private-qwilr-commands
+fi
 
 # Update if development path changes
 export qfolder=~/dev/qwilr
