@@ -62,6 +62,15 @@ ulimit -u 1024
 export PATH=/usr/local/sbin:~/bin:~/Library/Haskell/bin:$PATH
 # Adding Tex Live specifically
 export PATH=$PATH:/usr/local/texlive/2014basic/bin/x86_64-darwin
+# Adding Python2.7
+export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/2.7/bin
+# Adding cabal
+export PATH=$PATH:~/.cabal/bin
+
+# Adding go
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=~/dev/go
+export GOBIN=~/bin/
 
 # Aliases for ease and profit
 alias ls='ls -GFha'
@@ -87,3 +96,23 @@ alias qe='qwilrstart && subl .'
 export DOCKER_CERT_PATH=/Users/blambo/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 export DOCKER_HOST=tcp://192.168.59.103:2376
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f /Users/blambo/Downloads/google-cloud-sdk/path.zsh.inc ]; then
+  source '/Users/blambo/Downloads/google-cloud-sdk/path.zsh.inc'
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f /Users/blambo/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
+  source '/Users/blambo/Downloads/google-cloud-sdk/completion.zsh.inc'
+fi
+
+#
+# Find files with content matching arg
+#
+function findin {
+  find . -type f | grep -v "node_modules" | grep -v "MongoScripts" | grep -v "\/\.git\/" | grep -v "\/Build\/" | grep -v "\.DS_Store" | grep -v "\/Assets\/" | grep -v "\/Backups\/" | xargs grep "$1" 2> /dev/null | grep "$1"
+}
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

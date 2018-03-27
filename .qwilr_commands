@@ -1,7 +1,7 @@
 # Source commands that we don't want stored in git repo
-if [ -s ./.private-qwilr-commands ]
+if [ -s ~/.private-qwilr-commands ]
 then
-	source ./.private-qwilr-commands
+	source ~/.private-qwilr-commands
 fi
 
 # Update if development path changes

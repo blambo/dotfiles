@@ -24,6 +24,7 @@
 "
 " Sections:
 "    -> General
+"    -> Vundle set up
 "    -> VIM user interface
 "    -> Colors and Fonts
 "    -> Files and backups
@@ -46,10 +47,6 @@
 " Sets how many lines of history VIM has to remember
 set history=700
 
-" Enable filetype plugins
-filetype indent plugin on
-"filetype indent on
-
 " Set to auto read when a file is changed from the outside
 set autoread
 
@@ -63,6 +60,40 @@ nmap <leader>w :w!<cr>
 
 " Row and Column highlighting
 set cursorline cursorcolumn
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Vundle set up
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible
+filetype off " conflicts with above?
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'fatih/vim-go'
+
+Plugin 'othree/yajs.vim'
+
+Plugin 'HerringtonDarkholme/yats.vim'
+Plugin 'Quramy/vim-js-pretty-template'
+Plugin 'jason0x43/vim-js-indent'
+Plugin 'Quramy/vim-dtsm'
+Plugin 'Quramy/tsuquyomi'
+
+Plugin 'Valloric/YouCompleteMe'
+call vundle#end()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Indenting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable filetype plugins
+filetype plugin indent on
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -197,8 +228,8 @@ set pastetoggle=<F11>
 """"""""""""""""""""""""""""""
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
-vnoremap <silent> * :call VisualSelection('f')<CR>
-vnoremap <silent> # :call VisualSelection('b')<CR>
+vnoremap <silent> * :call VisualSelection('b')<CR>
+vnoremap <silent> # :call VisualSelection('f')<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -276,7 +307,7 @@ set mouse=a
 if has("mouse_sgr")
 	set ttymouse=sgr
 else
-	set ttymouse=xterm
+	set ttymouse=xterm2
 end
 
 """"""""""""""""""""""""""""""
@@ -286,7 +317,9 @@ end
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ Col:\ %c
+" Commented out status line includes current work directory, but that was getting in the way
+"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ Col:\ %c
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ L:\%l\ C:\%c
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -319,6 +352,9 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 nnoremap <F5> "=strftime("### %Y-%m-%d ###")<CR>P
 inoremap <F5> <C-R>=strftime("### %Y-%m-%d ###")<CR>
+
+nnoremap # *N
+nnoremap * #N
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimgrep searching and cope displaying
@@ -364,6 +400,13 @@ map <leader>sp [s
 map <leader>sa zg
 map <leader>s? z=
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => You Complete Me
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if !exists("g:ycm_semantic_triggers")
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
