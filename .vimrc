@@ -35,6 +35,7 @@
 "    -> Editing mappings
 "    -> vimgrep searching and cope displaying
 "    -> Spell checking
+"    -> Linting
 "    -> Misc
 "    -> Helper functions
 "
@@ -76,15 +77,21 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" Go language support
 Plugin 'fatih/vim-go'
 
+" Javascript support
 Plugin 'othree/yajs.vim'
 
+" Typescript support
 Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'Quramy/vim-js-pretty-template'
 Plugin 'jason0x43/vim-js-indent'
 Plugin 'Quramy/vim-dtsm'
 Plugin 'Quramy/tsuquyomi'
+
+" Coffeescript support
+Plugin 'kchmck/vim-coffee-script'
 
 Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
@@ -399,6 +406,12 @@ map <leader>sn ]s
 map <leader>sp [s
 map <leader>sa zg
 map <leader>s? z=
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Linting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => You Complete Me
