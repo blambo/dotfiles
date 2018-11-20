@@ -131,7 +131,7 @@ endif
 
 " coffeelint integration for linting coffeescript
 if executable("coffeelint")
-  call s:DefineLinter("coffee", "coffeelint --csv %s > %s", ['%f,%l,error,%m'])
+  call s:DefineLinter("coffee", "coffeelint --reporter csv %s > %s", ['%f,%l,error,%m'])
 endif
 
 " LessCSS compiling using lessc and /dev/null

@@ -62,14 +62,20 @@ nmap <leader>w :w!<cr>
 " Row and Column highlighting
 set cursorline cursorcolumn
 
+set shell=/bin/bash
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vundle set up
+" => Packages/Vundle set up
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
 filetype off " conflicts with above?
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+
+" The fzf plugin is set manually
+set rtp+=/usr/local/opt/fzf
+
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -93,7 +99,21 @@ Plugin 'Quramy/tsuquyomi'
 " Coffeescript support
 Plugin 'kchmck/vim-coffee-script'
 
+" Linting
+Plugin 'w0rp/ale'
+
+" Custom status line
+Plugin 'itchyny/lightline.vim'
+
+" Completion
 Plugin 'Valloric/YouCompleteMe'
+
+" Git gutter
+Plugin 'airblade/vim-gitgutter'
+
+" Multiple cursors
+Plugin 'terryma/vim-multiple-cursors'
+
 call vundle#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -165,6 +185,8 @@ set showcmd
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
 
+" Reduce the tiem taken for updates, default is 4000 (4 seconds)
+set updatetime=100
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -412,6 +434,8 @@ map <leader>s? z=
 " => Linting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => You Complete Me

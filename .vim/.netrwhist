@@ -1,10 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Users/blambo/dev/qwilr/Client/Application/Project/Browser/SavedBlockNavigator'
-let g:netrw_dirhist_2='/Users/blambo/dev/qwilr/Client/Application/Project/Modules'
-let g:netrw_dirhist_3='/Users/blambo/dev/qwilr/Client/Application/Project/Modules/QuoteV2'
-let g:netrw_dirhist_4='/Users/blambo/dev/qwilr/Client/Application/Project/Modules'
-let g:netrw_dirhist_5='/Users/blambo/dev/qwilr/Client/Application/Project/Modules/Quote'
-let g:netrw_dirhist_6='/Users/blambo/dev/qwilr/Client/Application/Project/Modules/QuoteV2'
-let g:netrw_dirhist_7='/Users/blambo/dev/qwilr/Client/Application/Project/Modules/QuoteV2/Menu'
-let g:netrw_dirhist_8='/Users/blambo/dev/qwilr/Client/Application/Project/Modules'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/Users/blambo/dev/dotfiles'

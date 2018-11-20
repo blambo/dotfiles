@@ -91,6 +91,11 @@ alias qs=qwilrStart
 alias qe='qwilrstart && subl .'
 
 #
+# Add any commands we don't want in the dotfiles
+#
+source ~/.private-commands
+
+#
 # Docker stuff
 #
 export DOCKER_CERT_PATH=/Users/blambo/.boot2docker/certs/boot2docker-vm
@@ -116,3 +121,12 @@ function findin {
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Hack fix for issue with backspace in vim giving a strange character
+stty erase '^?'
+
+# Combine vim and fzf (Fuzzy finder)
+alias fv='vim $(fzf)'
+export PATH="/usr/local/opt/mongodb@3.2/bin:$PATH"
